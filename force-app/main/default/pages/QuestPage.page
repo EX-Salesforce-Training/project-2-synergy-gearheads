@@ -1,0 +1,339 @@
+<!-- 
+	@Author: Zackary Frazier
+	@Last modified project: Project 1
+	@desc: displays information about quests, provides 
+	       ability to create quests and assign users to quests 
+-->
+
+<apex:page standardController="Quest__c" recordSetVar="quests" extensions="QuestExtension" id="page" showHeader="false">
+    <apex:slds />
+    
+    <div class="container">
+        <div class="nav-bar">
+            <ul class="nav-bar-links">
+                <!-- navigation component -->
+                <li class="nav-bar-header">
+                    <p>
+                        Navigation
+                    </p>
+                </li>
+                <li class="nav-bar-link-wrapper" onclick="clickFirstChild(event)">
+                    <apex:outputLink styleClass="nav-bar-link" value="{!$Page.GuildHallListPage}">
+                        Guild Halls
+                    </apex:outputLink>
+                </li>
+                <li class="nav-bar-link-wrapper" onclick="clickFirstChild(event)">
+                    <apex:outputLink styleClass="nav-bar-link" value="{!$Page.QuestPage}">
+                        Quests
+                    </apex:outputLink>
+                </li>
+                <li class="nav-bar-link-wrapper" onclick="clickFirstChild(event)">
+                    <apex:outputLink styleClass="nav-bar-link" value="{!$Page.PartyListPage}">
+                        Parties
+                    </apex:outputLink>
+                </li>
+                <li class="nav-bar-link-wrapper" onclick="clickFirstChild(event)">
+                    <apex:outputLink styleClass="nav-bar-link" value="{!$Page.GuildMemberListPage}">
+                        Guild Members
+                    </apex:outputLink>
+                </li>
+                
+                <!-- tools -->
+                <li class="nav-bar-header">
+                    <p>
+                        Tools
+                    </p>
+                </li>
+                <li class="nav-bar-link-wrapper" onclick="clickFirstChild(event)" >
+                    <a href="#" class="nav-bar-link" onclick="showModal(event, 'new-quest-modal')">
+                        New Quest
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="container-content">
+            <div class="header">
+                <h1 class="header-text">
+                    Dungeons &amp; Dragons
+                </h1>
+            </div>
+            
+            <div class="content-max-height">
+                <apex:pageBlock >
+                    <apex:pageBlockSection >
+                        <apex:form >
+                            <!-- table of quest records -->
+                            <apex:pageBlockTable id="record-table" value="{!quests}" var="quest" title="Quests">
+                                <apex:column value="{! quest.Name }" headerValue="Name"/>
+                                <apex:column value="{! quest.Danger_Level__c }" headerValue="Danger Level"/>
+                                <apex:column value="{! quest.Location__c }" headerValue="Location" />
+                                <apex:column value="{! quest.Requires_Party__c}" headerValue="Requires Party?" />
+                                <apex:column value="{! quest.Status__c }" headerValue="Status" />
+                                <apex:column headerValue="Info">
+                                    
+                                    <!-- save the questId to the back-end -->
+                                    <apex:commandButton value="Show" reRender="quest-panel,quest-desc">
+                                        <apex:param name="questId" value="{!quest.id}" assignTo="{!questId}" />
+                                    </apex:commandButton>
+                                    
+                                </apex:column>
+                            </apex:pageBlockTable>
+                        </apex:form>
+                        
+                        
+                        <!-- information panel -->
+                        <apex:outputPanel id="quest-panel">
+                            <div class="slds-panel slds-panel_docked slds-panel_docked-right slds-is-open" aria-hidden="false">
+                                
+                                <!-- quest title -->
+                                <div class="slds-panel__header">
+                                    <h2 class="slds-panel__header-title slds-text-heading_small slds-truncate" title="Quest Panel">
+                                        {!title}
+                                    </h2>
+                                </div>
+                                
+                                <!-- description -->
+                                <div id="quest-info" class="slds-panel__body info-panel">
+                                    <!--
+    									insertBefore actually adds the description via DOM manipulation
+    									but on the page, this is where it will appear
+    								-->
+                                    <apex:outputText >
+                                        <script>
+                                        	insertBefore("quest-info", "{! description }");
+                                        </script>
+                                    </apex:outputText>
+                                    
+                                    
+                                    
+                                    <apex:outputText rendered="{!questId != null}">
+                                        <form onsubmit="handleNewAssignment(event, submitForApproval)">
+                                            
+                                            <!-- email address -->
+                                            <div class="slds-form-element">
+                                                <label class="slds-form-element__label" for="form-element-email-accept">Guild Member Email Address</label>
+                                                <div class="slds-form-element__control">
+                                                    <input name="Assignee Email" type="email" id="form-element-email-accept" placeholder="YeetTheDragon@runescape.com" class="slds-input" />
+                                                </div>
+                                            </div> 
+                                            
+                                            <p>
+                                                <em>If you want to assign a guild member to this quest, enter their email here.</em>
+                                            </p>
+                                            
+                                            <div class="w-100 d-flex justify-content-center mt-3">
+                                                <button type="submit" class="slds-button slds-button_neutral slds-button_brand w-100" >
+                                                    Accept
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </apex:outputText>
+                                </div>
+                            </div>
+                        </apex:outputPanel>
+                        
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+            </div>
+            
+            <!-- dynamic error message prompt -->
+            <div id="dynamic-error-modal" style='display: none;'>
+                <section role="alertdialog" tabindex="0" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal_prompt" aria-modal="true">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header slds-theme_error slds-theme_alert-texture">
+                            <h2 class="slds-text-heading_medium" id="prompt-heading-id">Service unavailable</h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium modal-height" id="prompt-message-wrapper">
+                            <!-- content -->
+                        </div>
+                        <footer class="slds-modal__footer slds-theme_default">
+                            <button class="slds-button slds-button_neutral" onclick="hideErrorModal(event, 'dynamic-error-modal')">Got It</button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- the utility bar -->
+    <footer class="slds-utility-bar_container" aria-label="Utility Bar">
+        <h2 class="slds-assistive-text">Utility Bar</h2>
+        <ul class="slds-utility-bar">
+            
+            <!-- list page number -->
+            <li class="slds-utility-bar__item slds-m-horizontal_small">
+                <apex:form >
+                    <apex:outputText value="Page: {!PageNumber} of {! CEILING(ResultSize / PageSize) }"/>
+                </apex:form>
+            </li>
+            
+            <!-- previous -->
+            <li class="slds-utility-bar__item slds-m-horizontal_small">
+                <apex:form >
+                    <apex:commandLink action="{! Previous }" value="« Previous"
+                                      rendered="{! HasPrevious }"/>
+                    
+                    <apex:outputText style="color: #ccc;" value="« Previous"
+                                     rendered="{! NOT(HasPrevious) }"/>
+                </apex:form>
+            </li>
+            
+            <!-- next -->
+            <li class="slds-utility-bar__item slds-m-horizontal_small">
+                <apex:form >
+                    <apex:commandLink action="{! Next }" value="Next »"
+                                      rendered="{! HasNext }"/>
+                    
+                    <apex:outputText style="color: #ccc;" value="Next »"
+                                     rendered="{! NOT(HasNext) }"/>
+                </apex:form>
+            </li>
+            
+        </ul>
+    </footer>
+    
+    <!-- new quest modal -->
+    <div style='display: none;' id='new-quest-modal'>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Create a Quest</h2>
+                    <p class="slds-m-top_x-small">Following this wizard, you can create a quest in no time!</p>
+                </header>
+                
+                <form method="POST" onsubmit="submitNewQuest(event, saveQuest)">
+                    <div class="slds-modal__content slds-p-around_medium modal-height" id="modal-content-id-1">
+                        
+                        <!-- email address -->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-email">Contact Email Address</label>
+                            <div class="slds-form-element__control">
+                                <input name="Email" type="email" id="form-element-email" placeholder="YeetTheDragon@runescape.com" class="slds-input" />
+                            </div>
+                        </div> 
+                        
+                        <!-- quest name -->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-01">Quest Name</label>
+                            <div class="slds-form-element__control">
+                                <input name="Quest Name" type="text" id="form-element-01" placeholder="Kill the dragon!" class="slds-input" />
+                            </div>
+                        </div>
+                        
+                        <!-- requires party -->
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input name="Requires Party" type="checkbox" id="checkbox-unique-id-73" value="checkbox-unique-id-73" checked="" />
+                                    <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label">Requires Party?</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- location -->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-04">Location</label>
+                            <div class="slds-form-element__control">
+                                <input name="Location" type="text" id="form-element-04" placeholder="Runescape!" class="slds-input" />
+                            </div>
+                        </div>
+                        
+                        <!-- quest details -->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="textarea-id-01">Quest Details</label>
+                            <div class="slds-form-element__control">
+                                <textarea name="Quest Details" id="textarea-id-01" placeholder="Kill the dragon ofc" class="slds-textarea"></textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- danger level -->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="select-01">Danger level</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select name="Danger Level" class="slds-select" id="select-01">
+                                        <option>Beginner</option>
+                                        <option>Easy</option>
+                                        <option>Medium</option>
+                                        <option>Hard</option>
+                                        <option>Certain Death</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- required profession -->
+                        <fieldset class="slds-form-element">
+                            <legend class="slds-form-element__legend slds-form-element__label">Required Profession(s)</legend>
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox_button-group">
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input name="Required Profession: Adventurer" type="checkbox" id="unique-id-thursday-13" value="unique-id-thursday-13" />
+                                        <label class="slds-checkbox_button__label" for="unique-id-thursday-13">
+                                            <span class="slds-checkbox_faux">Adventurer</span>
+                                        </label>
+                                    </span>
+                                    <span class="slds-button slds-checkbox_button">
+                                        <input name="Required Profession: Craftsman" type="checkbox" id="unique-id-friday-13" value="unique-id-friday-13" />
+                                        <label class="slds-checkbox_button__label" for="unique-id-friday-13">
+                                            <span class="slds-checkbox_faux">Craftsman</span>
+                                        </label>
+                                    </span>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- reward -->
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="form-element-reward">Reward</label>
+                            <div class="slds-form-element__control">
+                                <input name="Reward" type="text" id="form-element-reward" placeholder="1000.00" class="slds-input" />
+                            </div>
+                        </div> 
+                        
+                    </div>
+                    
+                    <!-- save / cancel buttons -->
+                    <footer class="slds-modal__footer">
+                        <!-- cancel -->
+                        <button onclick="hideModal(event, 'new-quest-modal')" class="slds-button slds-button_neutral">Cancel</button>
+                        
+                        <!-- save -->
+                        <button type='submit' class="slds-button slds-button_brand">Save</button>
+                    </footer>
+                </form>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+    <apex:form >
+        <!-- generate the javascript function to save a quest -->
+        <apex:actionFunction name="saveQuest" action="{! saveQuest }" reRender="dynamic-error-modal" oncomplete="onCompleteSaveQuest()">
+            <apex:param name="questName" value="" assignTo="{! formData.questName }" />
+            <apex:param name="questDetails" value="" assignTo="{! formData.questDetails }" />
+            <apex:param name="location" value="" assignTo="{! formData.location }" />
+            <apex:param name="requiresParty" value="" assignTo="{! formData.requiresParty }" />
+            <apex:param name="dangerLevel" value="" assignTo="{! formData.dangerLevel }" />
+            <apex:param name="requiredProfessionAdventurer" value="" assignTo="{! formData.requiredProfessionAdventurer }" />
+            <apex:param name="requiredProfessionCraftsman" value="" assignTo="{! formData.requiredProfessionCraftsman }" />
+            <apex:param name="reward" value="" assignTo="{! formData.reward }" />
+            <apex:param name="email" value="" assignTo="{! formData.email }" />
+        </apex:actionFunction>
+        
+        <!-- generate javascript function to submit quest for approval -->
+        <apex:actionFunction name="submitForApproval" action="{! submitForApproval }" reRender="" oncomplete="onCompleteHandleNewAssignment()">
+            <apex:param name="assigneeEmail" value="" assignTo="{! assigneeEmail }" />
+        </apex:actionFunction>
+        
+    </apex:form>
+    
+    <apex:stylesheet value="{!$Resource.Style}"/>
+    <apex:includeScript value="{!$Resource.QuestPage}"/>
+</apex:page>
