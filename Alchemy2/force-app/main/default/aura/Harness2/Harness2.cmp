@@ -1,0 +1,15 @@
+<aura:component controller="Harness2Controller" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="contactIds" type="Id[]" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.onClick}" />
+    <lightning:card title="Hello">
+        <lightning:button variant="brand" label="Call Child" onclick="{!c.onClick}" />
+    </lightning:card>
+    <!-- inside JS, use component.find() to locate by aura.id -->
+    <lightning:accordion aura:id="accordian">
+    	<aura:iteration items="{!v.contactIds}" var="contact">
+        	<lightning:accordionSection label="{!contact}" >
+                <c:Harness2Case Contact="{!contact}"/>
+            </lightning:accordionSection>
+        </aura:iteration>
+    </lightning:accordion>
+</aura:component>

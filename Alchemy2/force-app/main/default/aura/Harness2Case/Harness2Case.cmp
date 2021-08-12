@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:attribute name="Contact" type="ID"/>
+    <lightning:recordForm recordId="{!v.Contact}" objectApiName="Contact" layoutType="Compact"/>
+</aura:component>
