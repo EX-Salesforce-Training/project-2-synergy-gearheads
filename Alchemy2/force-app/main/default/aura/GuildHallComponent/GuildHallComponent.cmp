@@ -1,5 +1,0 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
-    <div class="content-max-height  slds-col slds-size_1-of-1">
-        HeLLO WORLD!
-    </div>
-</aura:component>
