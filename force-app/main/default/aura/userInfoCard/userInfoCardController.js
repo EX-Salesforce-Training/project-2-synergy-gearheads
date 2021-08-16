@@ -20,7 +20,7 @@
             let state = response.getState();
             if(state === "SUCCESS"){
                 component.set("v.guildMember", response.getReturnValue());
-                console.log(response.getReturnValue());
+                console.log("v.guildMember");
             }else{
                 console.log("Failed with state: " + state);
             }

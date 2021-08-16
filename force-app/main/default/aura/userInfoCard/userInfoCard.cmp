@@ -14,6 +14,8 @@
     <aura:attribute name="guildMember" type="Guild_Member__c"
                     default="{'sobjectType' : 'Guild_Member__c'}"/>
     <aura:attribute name="member" type="String" default="Gabriel"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="itemData" type="Object[]"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
     
     <div class="slds-grid slds-wrap">
@@ -141,6 +143,21 @@
                         </div>
                         <div class="slds-col slds-size_1-of-6" style="position: absolute;bottom: 0;right: 0;font-weight: bold;">
                         	Total Level: {!v.guildMember.Total_Level__c}
+                        </div>
+                    </div>
+                </p>
+            </lightning:card>
+            <lightning:card title="Item Information" class="card">
+                <p class="slds-p-horizontal_small">
+                    <div class="slds-grid slds-wrap" >
+                        <div class="slds-col slds-size_1-of-6" style="text-align: center; font-weight: bold;font-size: 130%;color:red">
+                            
+                        </div>
+                        <div class="slds-col slds-size_4-of-6">
+                            <c:userItemInfo/>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            
                         </div>
                     </div>
                 </p>
