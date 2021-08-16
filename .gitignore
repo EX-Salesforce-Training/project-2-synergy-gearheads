@@ -36,3 +36,15 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+# Any random things we don't need in the repo
+.eslintignore
+.forceignore
+.prettierignore
+.prettierrc
+.swift-sfdc.json
+jest.config.js
+sfdx-project.json
+package.json
+/force-app/main/default/aura/TestApp/
+
