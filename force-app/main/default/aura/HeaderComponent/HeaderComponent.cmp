@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="slds-grid container">
+        <div class="header">
+            <h1 class="header-text slds-col slds-size_1-of-1">
+                Dungeons &amp; Dragons
+            </h1>
+        </div>
+    </div>
+</aura:component>
