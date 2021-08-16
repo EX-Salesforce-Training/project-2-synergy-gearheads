@@ -1,0 +1,155 @@
+<!--
+ * *******************************************************
+ * Title: userInfoCard.cmp
+ * Author: Dominic Romanello
+ * Created: 8/11/21
+ * LastModified: 8/12/21
+ * LastModifiedBy: Dominic Romanello
+ * Description: Handles the initialization of the page.
+ * 
+ ******************************************************** 
+														-->
+
+<aura:component controller="userInfoCardApexController">
+    <aura:attribute name="guildMember" type="Guild_Member__c"
+                    default="{'sobjectType' : 'Guild_Member__c'}"/>
+    <aura:attribute name="member" type="String" default="Gabriel"/>
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_2-of-12">
+            
+        </div>
+        <div class="slds-col slds-size_8-of-12">
+            <lightning:card title="{!v.guildMember.Name}" class="card">
+                <!--
+                <aura:set attribute="actions">
+                    <lightning:button label="New"/>
+                </aura:set>
+					-->
+                <p class="slds-p-horizontal_small">
+                    <div class="slds-grid slds-wrap" >
+                        <div class="slds-col slds-size_1-of-6" style="text-align: center; font-weight: bold;font-size: 130%;color:red">
+                            {!v.guildMember.Race__c}
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            Guild Hall: <br/>
+                            Class: <br/>
+                            Skills: <br/>
+                            Active: <br/>
+                            Age: <br/>
+                            Date Hired: <br/>
+                        </div>
+                        <div class="slds-col slds-size_3-of-6">
+                            {!v.guildMember.Guild_Hall__c.Name}<br/>
+                            {!v.guildMember.Class__c}<br/>
+                            {!v.guildMember.Skills__c}<br/>                            
+                            <force:outputField value="{!v.guildMember.Active__c}"/><br/>
+                            {!v.guildMember.Age__c}<br/>
+                            <ui:outputDate value="{!v.guildMember.Date_Hired__c}"/><br/>
+                            
+                        </div>
+                        
+                    </div>
+                </p>
+            </lightning:card>
+            <lightning:card title="Level Information">
+                <p class="slds-p-horizontal_small">
+                    <div class="slds-grid slds-wrap" >
+                        <div class="slds-col slds-size_1-of-6" style="text-align: center; font-weight: bold;font-size: 130%;color:red">
+                            
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            <aura:if isTrue="{!v.guildMember.Artificer_Level__c}">
+                            	Artificer Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Barbarian_Level__c}">
+                            	Barbarian Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Bard_Level__c}">
+                            	Bard Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Cleric_Level__c}">
+                            	Cleric Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Druid_Level__c}">
+                            	Druid Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Fighter_Level__c}">
+                            	Fighter Level: <br/>
+                            </aura:if>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            <aura:if isTrue="{!v.guildMember.Artificer_Level__c}">
+                            	{!v.guildMember.Artificer_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Barbarian_Level__c}">
+                            	{!v.guildMember.Barbarian_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Bard_Level__c}">
+                            	{!v.guildMember.Bard_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Cleric_Level__c}">
+                            	{!v.guildMember.Cleric_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Druid_Level__c}">
+                            	{!v.guildMember.Druid_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Fighter_Level__c}">
+                            	{!v.guildMember.Fighter_Level__c}<br/>
+                            </aura:if>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            <aura:if isTrue="{!v.guildMember.Monk_Level__c}">
+                            	Monk Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Ranger_Level__c}">
+                            	Ranger Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Rogue_Level__c}">
+                            	Rogue Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Sorcerer_Level__c}">
+                            	Sorcerer Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Warlock_Level__c}">
+                            	Warlock Level: <br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Wizard_Level__c}">
+                            	Wizard Level: <br/>
+                            </aura:if>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6">
+                            <aura:if isTrue="{!v.guildMember.Monk_Level__c}">
+                            {!v.guildMember.Monk_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Ranger_Level__c}">
+                            {!v.guildMember.Ranger_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Rogue_Level__c}">
+                            {!v.guildMember.Rogue_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Sorcerer_Level__c}">
+                            {!v.guildMember.Sorcerer_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Warlock_Level__c}">
+                            {!v.guildMember.Warlock_Level__c}<br/>
+                            </aura:if>
+                            <aura:if isTrue="{!v.guildMember.Wizard_Level__c}">
+                            {!v.guildMember.Wizard_Level__c}<br/>
+                            </aura:if>
+                        </div>
+                        <div class="slds-col slds-size_1-of-6" style="position: absolute;bottom: 0;right: 0;font-weight: bold;">
+                        	Total Level: {!v.guildMember.Total_Level__c}
+                        </div>
+                    </div>
+                </p>
+            </lightning:card>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+        	
+        </div>
+    </div>
+    
+	
+</aura:component>
