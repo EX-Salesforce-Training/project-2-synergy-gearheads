@@ -49,3 +49,4 @@ $RECYCLE.BIN/
 jest.config.js
 sfdx-project.json
 package.json
+/force-app/main/default/aura/TestApp/
