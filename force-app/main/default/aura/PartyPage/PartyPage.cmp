@@ -1,0 +1,50 @@
+<aura:component controller="PartyPageController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="partyName" type="String"/>
+    <aura:attribute name="partyMembers" type="Guild_Member__c[]"/>
+    <aura:attribute name="myColumns" type="List"/>
+    <aura:attribute name="notRecruiting" type="String"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    
+    <lightning:layout>
+        <lightning:layoutItem padding="around-small">
+            <lightning:input label="Party Name"
+                                     name="partyname"
+                                     value="{!v.partyName}"
+                                     required="true"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="around-small">
+            <lightning:button label="Search"
+                                      class="slds-m-top_medium"
+                                      variant="brand"
+                                      onclick="{!c.init}"/>
+    	</lightning:layoutItem>
+    </lightning:layout>
+            
+    <lightning:layout>
+        <lightning:layoutItem padding="around-small">
+            <lightning:card title="{!v.partyMembers.Name}">
+        	<!--<lightning:input label="Party Name" value="{!v.partyid}"/>-->
+        		<div style="height: 300px">
+        			<lightning:datatable
+                        keyField="id"
+                        data="{!v.partyMembers}"
+                        columns="{!v.myColumns}"
+                        hideCheckboxColumn="true"/>
+    			</div>
+    		</lightning:card>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+    <lightning:layout>
+        <lightning:layoutItem padding="around-medium">
+    		<ui:outputText value="{!v.notRecruiting}" />
+            &nbsp;&nbsp;
+            <lightning:button variant="brand" label="Join" title="Base action" onclick="{!c.handleClick }"/>
+            
+      		<br/><br/>
+            
+            <div>Go to <a href="/apex/PartyListPage">party list.</a></div>
+		</lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

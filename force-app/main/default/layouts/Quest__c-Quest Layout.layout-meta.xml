@@ -9,6 +9,26 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
+                <field>Quest_City__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Quest_Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Quest_Postal_Code__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Quest_State__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Quest_Street__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -109,6 +129,13 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Quest_City__c</fields>
+        <fields>Quest_Country__c</fields>
+        <fields>Quest_Postal_Code__c</fields>
+        <fields>Quest_State__c</fields>
+        <fields>Quest_Street__c</fields>
+    </miniLayout>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
