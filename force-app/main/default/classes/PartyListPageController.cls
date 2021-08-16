@@ -320,6 +320,7 @@ public with sharing class PartyListPageController {
         return Page.PartyPage;
     }
     
+    
     // For switching to the User Page
     // Not tested.
     /*
