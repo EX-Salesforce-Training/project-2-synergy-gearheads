@@ -51,7 +51,7 @@ Description: Displays a list of a party's members. If the party is accepting new
             
             <div class="content-max-height">
                 <apex:form >
-                    <!--<apex:pageMessages />-->
+                    <apex:pageMessages />
                     <apex:pageBlock id="partyBlock" title="{!currentParty.Name}">
                         <apex:pageBlockTable value="{!currentPartyMembers}" var="member" >
                             <apex:column headerValue="{!$ObjectType.Guild_Member__c.fields.Name.label}" >
@@ -74,6 +74,6 @@ Description: Displays a list of a party's members. If the party is accepting new
             </div>
         </div>
     </div>
-    <apex:stylesheet value="{!$Resource.Style}"/ >
+    <apex:stylesheet value="{!$Resource.Style}"/>
     <apex:includeScript value="{!$Resource.QuestPage}"/>
 </apex:page>
