@@ -181,7 +181,7 @@ Description: Displays a list of the parties in the org. The list can be sorted a
                             <apex:facet name="header">
                                 <apex:commandLink value="{!$ObjectType.Party__c.fields.Name.label}" action="{!orderByPartyName}" reRender="partyBlock" />
                             </apex:facet>
-                            <apex:commandLink value="{!party.Name}" action="{!partyPage}">
+                            <apex:commandLink value="{!party.Name}" action="{!partyPage}" >
                                 <apex:param name="x" value="{!party.id}" assignTo="{!partyid}" />
                             </apex:commandLink>
                         </apex:column>

@@ -76,18 +76,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Sorcerer_Level__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Wizard_Level__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Warlock_Level__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Artificer_Level__c</field>
             </layoutItems>
             <layoutItems>
@@ -116,11 +104,27 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Paladin_Level__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Ranger_Level__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Rogue_Level__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sorcerer_Level__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Warlock_Level__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Wizard_Level__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -132,10 +136,6 @@
         <editHeading>true</editHeading>
         <label>System Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Paladin_Level__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
@@ -159,13 +159,28 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Party__c.NAME</fields>
+        <fields>Party__c.Party_Size__c</fields>
+        <relatedList>Member_Assignment__c.Guild_Member__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Location__c</fields>
+        <fields>Date_Opened__c</fields>
+        <fields>Contact__c</fields>
+        <fields>Status__c</fields>
+        <fields>Reward__c</fields>
+        <relatedList>Quest__c.Guild_Member__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h5e00000CHFng</masterLabel>
+        <masterLabel>00h5e00000BUs0K</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
