@@ -1,8 +1,8 @@
 ({
     getFacilities : function (component, event, helper){
-        let action = component.get("c.getRelated");
+        let action = component.get("c.getFacilities");
         let curRecord = component.get("v.recordId");
-        action.setParams({'curObject': 'Facility__c', 'recordID':curRecord});
+        action.setParams({'recordID':curRecord});
 		action.setCallback(this, function(response){
             let state = response.getState();
             if (state === "SUCCESS"){
@@ -13,24 +13,10 @@
         $A.enqueueAction(action);                          
     },
     
-    getParties : function (component, event, helper){
-        let action = component.get("c.getRelated");
-        let curRecord = component.get("v.recordId");
-        action.setParams({'curObject': 'Party__c', 'recordID':curRecord});
-		action.setCallback(this, function(response){
-            let state = response.getState();
-            if (state === "SUCCESS"){
-                let records = response.getReturnValue();
-                component.set("v.parties", records);
-            }
-        });
-        $A.enqueueAction(action);                          
-    },
-    
     getQuests : function (component, event, helper){
-        let action = component.get("c.getRelated");
+        let action = component.get("c.getQuests");
         let curRecord = component.get("v.recordId");
-        action.setParams({'curObject': 'Quest__c', 'recordID':curRecord});
+        action.setParams({'recordID':curRecord});
 		action.setCallback(this, function(response){
             let state = response.getState();
             if (state === "SUCCESS"){
