@@ -159,7 +159,11 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Items</pluralLabel>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Item_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Value__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Magic__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

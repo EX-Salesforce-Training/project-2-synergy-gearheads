@@ -3,9 +3,9 @@
  * Title: userInfoCardController.js
  * Author: Dominic Romanello
  * Created: 8/11/21
- * LastModified: 8/11/21
+ * LastModified: 8/16/21
  * LastModifiedBy: Dominic Romanello
- * Description: Handles the initialization of the page.
+ * Description: 
  * 
  ******************************************************** 
  */
@@ -13,14 +13,15 @@
 ({
 	doInit : function(component, event, helper) {
 		let action = component.get("c.getMember");
-        let member = component.get("v.member");
-        action.setParams({"member" : member});
+        let memberId = component.get("v.memberId");
+        action.setParams({"memberId" : memberId});
         
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === "SUCCESS"){
                 component.set("v.guildMember", response.getReturnValue());
-                console.log(response.getReturnValue());
+                component.set("v.loaded", true);
+                console.log("v.guildMember");
             }else{
                 console.log("Failed with state: " + state);
             }

@@ -1,0 +1,100 @@
+<!--
+ * *******************************************************
+ * Title: itemList.cmp
+ * Author: Dominic Romanello
+ * Created: 8/16/21
+ * LastModified: 8/16/21
+ * LastModifiedBy: Dominic Romanello
+ * Description: 
+ * 
+ ******************************************************** 
+-->
+
+<aura:component Controller="itemListApexController">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="Object"/>
+    
+    <aura:handler name="init" action="{!c.init}" value="{!this}"/>
+    <div class="slds-grid slds-wrap">
+        <div class= "slds-col slds-size_1-of-12">
+        
+        </div>
+        <div class= "slds-col slds-size_10-of-12">
+            <lightning:card title="Filters">
+                <div class="slds-grid slds-wrap">
+                    
+                    <div class="slds-col slds-size_1-of-12">
+                        
+                    </div>
+                    <!-- Information for left side of Filter card -->
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning:select aura:id="selectItemType" name="selectItemType" label="Filter by Item Type" onchange="{!c.selectItemType}">
+                            <option value="">choose one...</option>
+                            <option value="ammunition">Ammunition</option>
+                            <option value="armor">Armor</option>
+                            <option value="castingFocus">Casting Focus</option>
+                            <option value="craftingMaterial">Crafting Material</option>
+                            <option value="spellComponents">Spell Components</option>
+                            <option value="utilityItem">Utility Item</option>
+                            <option value="other">Other</option>
+                        </lightning:select>
+                        <lightning:select aura:id="selectGuild" name="selectGuild" label="Is it Guild Owned?" onchange="{!c.selectByGuild}">
+                            <option value="">choose one...</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </lightning:select>
+                    </div>
+                    <div class="slds-col slds-size_1-of-12">
+                    <!-- Spacing for in between filters-->
+                    </div>
+                    <!-- Information for right side of Filter card -->
+                    <div class="slds-col slds-size_4-of-12">
+                        <lightning:select aura:id="selectValue" name="selectValue" label="Filter by Value" onchange="{!c.selectByValue}">
+                            <option value="">choose one...</option>
+                            <option value="lessThan5">Less Than $500</option>
+                            <option value="5To5k">$500 - $5,000</option>
+                            <option value="5kTo10k">$5,000 - $10,000</option>
+                            <option value="10kTo50k">$10,000 - $50,000</option>
+                            <option value="above50k">Above $50,000</option>
+                        </lightning:select>
+                        <lightning:select aura:id="selectMagic" name="selectMagic" label="Is it Magical?" onchange="{!c.selectByMagic}">
+                            <option value="">choose one...</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </lightning:select>
+                    </div>
+                    <div class="slds-col slds-size_1-of-12">
+                    <!-- Spacing for in between filters-->
+                    </div>
+                    <div class="slds-col slds-size_1-of-12">
+                        <lightning:button label="Show All" variant="brand-outline" title="Show all Items" onclick="{!c.init}"/>
+                    </div>
+                </div>
+            </lightning:card>
+            <lightning:card title="Items">
+                <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-12">
+                        
+                    </div>
+                    <div class="slds-col slds-size_10-of-12">
+                        <div style="height: 300px">
+                            <lightning:datatable
+                                                 keyField="id"
+                                                 data="{! v.data }"
+                                                 columns="{! v.columns }"
+                                                 hideCheckboxColumn="true"/>
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_1-of-12">
+                        
+                    </div>
+                    
+                </div>
+            </lightning:card>
+        	
+        </div>
+        <div class= "slds-col slds-size_1-of-12">
+        	
+        </div>
+    </div>
+</aura:component>
