@@ -7,8 +7,6 @@
     <aura:attribute name="backgroundImageURL" type="String" default=""/>
     <!--<aura:attribute name="loaded" type="Boolean" default="false"/>-->
     
-    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
-    <aura:handler name="change" value="{!v.partyName}" action="{!c.init}" />
     <aura:registerEvent name="setParty" type="c:PartyPageEvent"/>
     
     
