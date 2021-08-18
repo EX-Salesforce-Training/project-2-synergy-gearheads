@@ -1,9 +1,5 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
-    <aura:attribute name="pageTitle" type="String" />
-    <aura:attribute name="objectType" type="String" />
-    <aura:attribute name="pageNumber" type="Integer" />
-    <aura:attribute name="maxPage" type="Integer" />
-    <div class="slds-grid">
+	<div class="slds-grid">
     	<ul class="nav-bar-links">
         	<li class="nav-bar-header">
             	<p>
@@ -11,18 +7,17 @@
                 </p>
             </li>
             <li class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateGuildHall}" class = 'nav-bar-link'>Guild Halls</a>
+                <ui:outputURL class = 'nav-bar-link' value="/apex/GuildHallListPage" label="Guild Halls"/>
             </li>
             <li class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateQuest}" class = 'nav-bar-link'>Quest List</a>
+                <ui:outputURL class = 'nav-bar-link' value="/apex/QuestPage" label="Quests"/>
             </li>
             <li class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateParty}" class = 'nav-bar-link'>Party List</a>
+                <ui:outputURL class = 'nav-bar-link' value="/apex/PartyListPage" label="Parties"/>
             </li>
             <li class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateGuildMember}" class = 'nav-bar-link'>Guild Member List</a>
+                <ui:outputURL class = 'nav-bar-link' value="/apex/GuildMemberListPage" label="Guild Members"/>
             </li>
-
         </ul>
     </div>
 </aura:component>
