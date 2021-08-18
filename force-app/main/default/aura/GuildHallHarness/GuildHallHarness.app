@@ -1,7 +1,30 @@
 <aura:application  extends="force:slds">
-    <aura:attribute name="pageNumber" type="Integer" default="0" />
+	<!--
+		The universal service page
+		displays lists of records and shows invidivual records
+		clicking on a list view on the right changes the objectType attribute
+		components are hidden if not in use, each only updating and displaying if they are the current page
+		
+		component list:
+			homepage
+			listview page
+			guild hall page
+			quest page
+			party page
+			guild member page
+
+
+	 -->
+    <aura:attribute name="pageTitle" type="String" default="Dungeons &amp; Dragons" />
+    <aura:attribute name="objectType" type="String" default="HomePage" />
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="recordName" type="String" default=""/>
+
     <aura:attribute name="maxPage" type="Integer" default="0" />
+    <aura:attribute name="pageNumber" type="Integer" default="0" />
+
     <aura:attribute name="homepage" type="String" default="/" />
+    
     <aura:html tag="style">
         :root {
             --gun-metal: #202C39;
@@ -18,18 +41,43 @@
     </aura:html>
     <div class="slds-grid slds-wrap tall">
 		<div class="slds-col slds-size_1-of-6">
-        	<c:NavBarComponent>
+            <c:NavBarComponent pageTitle="{!v.pageTitle}" objectType="{!v.objectType}" pageNumber="{!v.pageNumber}" maxPage="{!v.maxPage}">
             </c:NavBarComponent>
         </div>
         <div class="slds-col slds-size_5-of-6">
-        	<c:HeaderComponent>
+        	<c:HeaderComponent pageTitle="{!v.pageTitle}">
             </c:HeaderComponent>
-			<c:GuildHallComponent>
-            </c:GuildHallComponent>
+            <aura:if isTrue="{!v.pageTitle != 'Dungeons &amp; Dragons'}" >
+				<div class="slds-grid">
+					<div class="slds-col slds-size_1-of-6">
+                        <c:ListPageComponent recordName = "{!v.recordName}" recordId="{!v.recordId}" pageTitle="{!v.pageTitle}" pageNumber="{!v.pageNumber}" maxPage="{!v.maxPage}">
+                        </c:ListPageComponent>
+                    </div>
+					<div class="slds-col slds-size_5-of-6">
+                        <aura:if isTrue="{!v.pageTitle == 'Item List'}" >
+                            <c:itemList >
+                            </c:itemList>
+                        </aura:if>
+                        <aura:if isTrue="{!v.pageTitle == 'Quests'}" >
+                            <c:QuestPage>
+                            </c:QuestPage>
+                        </aura:if>
+                        <aura:if isTrue="{!v.pageTitle == 'Parties'}" >
+                            <c:PartyPage partyName="{!v.recordName}">
+                            </c:PartyPage>
+                        </aura:if>
+                        <aura:if isTrue="{!v.pageTitle == 'Guild Members'}" >
+                            <c:userInfoCard memberId= "{!v.recordId}" >
+                            </c:userInfoCard>
+                        </aura:if>
+                    </div>    
+                </div>
+
+            </aura:if>
+
+
         </div>
         <div class="slds-col slds-size_1-of-1">
-        	<c:utilityBarComponent>
-            </c:utilityBarComponent>
         </div>
     </div>
 </aura:application>

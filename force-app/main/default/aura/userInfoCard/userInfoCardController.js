@@ -12,7 +12,10 @@
 
 ({
 	doInit : function(component, event, helper) {
-		let action = component.get("c.getMember");
+        let url = $A.get('$Resource.UserInfoPageBackground');
+        component.set('v.backgroundImageURL', url);
+        
+        let action = component.get("c.getMember");
         let memberId = component.get("v.memberId");
         action.setParams({"memberId" : memberId});
         
