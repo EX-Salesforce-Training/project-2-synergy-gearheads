@@ -1,5 +1,26 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<aura:component controller="GuildHallController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="pageTitle" type="string" />
+    <aura:attribute name="facilities" type="Facility__c[]" />
+    <aura:attribute name="parties" type="Party__c[]" />
+    <aura:attribute name="quests" type="Quest__c[]" />
+    <aura:attribute name="potato" type="String" />
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="recordName" type="String" default=""/>
+	<aura:attribute name="pageNumber" type="Integer" default="0" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.recordId}" action="{!c.init}"/>
+    {!v.recordId}
     <div class="content-max-height  slds-col slds-size_1-of-1">
-        HeLLO WORLD!
+		<div class="recordList" >
+        	<div class="recordType" >
+            	Available Facilities
+            </div>
+            <aura:iteration var="curRecord" items="{!v.facilities}" >
+                <div class="selectable" >
+                    {!curRecord.Name}
+                </div>
+            </aura:iteration>
+        </div>
     </div>
 </aura:component>
