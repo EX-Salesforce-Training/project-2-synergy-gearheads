@@ -71,6 +71,15 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Guild_Member__c.Total_Level__c</fields>
+        <relatedList>Member_Assignment__c.Party__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Contact__c</fields>
+        <fields>Date_Opened__c</fields>
+        <fields>Status__c</fields>
+        <fields>Reward__c</fields>
         <relatedList>Quest__c.Party__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
@@ -79,7 +88,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h5e00000Bd1Iq</masterLabel>
+        <masterLabel>00h5e00000BUs0N</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

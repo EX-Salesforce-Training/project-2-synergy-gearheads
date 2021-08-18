@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<div class="slds-grid">
+    	<ul class="nav-bar-links">
+        	<li class="nav-bar-header">
+            	<p>
+                	Navigation
+                </p>
+            </li>
+            <li class="nav-bar-link-wrapper">
+                <ui:outputURL class = 'nav-bar-link' value="/apex/GuildHallListPage" label="Guild Halls"/>
+            </li>
+            <li class="nav-bar-link-wrapper">
+                <ui:outputURL class = 'nav-bar-link' value="/apex/QuestPage" label="Quests"/>
+            </li>
+            <li class="nav-bar-link-wrapper">
+                <ui:outputURL class = 'nav-bar-link' value="/apex/PartyListPage" label="Parties"/>
+            </li>
+            <li class="nav-bar-link-wrapper">
+                <ui:outputURL class = 'nav-bar-link' value="/apex/GuildMemberListPage" label="Guild Members"/>
+            </li>
+        </ul>
+    </div>
+</aura:component>

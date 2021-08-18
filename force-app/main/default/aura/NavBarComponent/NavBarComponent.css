@@ -1,0 +1,48 @@
+.THIS {
+	background-color: #283845;
+	height: 98vh;
+}
+
+.THIS .nav-bar-links {
+    width:100%;
+	display: flex-column;
+    justify-content: space-around;                            
+}
+
+.THIS .nav-bar-link-wrapper {
+	height: 1.8rem;
+    display: flex;
+    align-items: center;
+	transition: background-color 0.8s;
+}
+
+.THIS .nav-bar-link-wrapper:hover {
+    background-color: #1D2834;
+    cursor: pointer;
+   	transition: background-color 0.8s;
+}
+                                        
+.THIS .nav-bar-link {
+	margin: 1.4rem;
+	color: rgba(228,235,241,0.8) !important;
+}
+
+.THIS .nav-bar-button {
+	border: none;
+	background-color: #1D2834;
+	margin: 1.4rem;
+	color: rgba(228,235,241,0.8) !important;                                                
+}
+
+.THIS .nav-bar-header {
+	width: 100%;
+	background-color: #161E27;
+	color: #7d9cb5;
+	display: flex;
+	justify-content: center;
+	padding: 0.3rem 0;
+}
+
+.THIS .nav-bar-link:hover {
+	text-decoration: none !important;     
+}
