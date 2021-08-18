@@ -1,20 +1,27 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
-	<aura:attribute name="quest" type="Quest__c[]"/>
-    <aura:attribute name="myColumns" type="List"/>
+<aura:component controller="PartyPageController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="quests" type="Quest__c[]"/>
+    <aura:attribute name="partyName" type="String"/>
     
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     
-    <lightning:layout>
-        <lightning:layoutItem padding="around-small">
-            <lightning:card title="{!v.quest.Name}">
-        		<div style="height: 300px">
-        			<lightning:datatable
-                        keyField="id"
-                        data="{!v.quest}"
-                        columns="{!v.myColumns}"
-                        hideCheckboxColumn="true"/>
-    			</div>
-    		</lightning:card>
-        </lightning:layoutItem>
-    </lightning:layout>
+    <aura:handler event="c:PartyPageEvent" action="{!c.setAttributeValue}"/>
+    
+        	<div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+    			<lightning:layout horizontalAlign="space" verticalAlign="center" multipleRows="true">
+                      <aura:iteration items="{!v.quests}" var="quest">
+                         <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="4" mediumDeviceSize="4" largeDeviceSize="4" padding="around-small">
+                            <div class="custom-box slds-box slds-p-around_medium" style="color:black; font-size:14px; font-family:Georgia;">
+                                  <lightning:card variant="Narrow" title="{!quest.Name}">
+                                        <!--<p class="slds-p-horizontal_small"><img src="{!}"/></p>-->
+                                        <p class="slds-p-horizontal_small">Quest Details: {!quest.Quest_Details__c}</p>
+                                        <p class="slds-p-horizontal_small">Danger Level: {!quest.Danger_Level__c}</p>
+                                        <p class="slds-p-horizontal_small">Location: {!quest.Location__c}</p>
+                                        <p class="slds-p-horizontal_small">Reward: {!quest.Reward__c}</p>
+                                        <p class="slds-p-horizontal_small">Status: {!quest.Status__c}</p>	
+                        		</lightning:card>
+                			</div>
+        				</lightning:layoutItem>
+    				</aura:iteration>
+    			</lightning:layout>
+    		</div>  
 </aura:component>

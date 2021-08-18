@@ -113,6 +113,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GuildHallController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GuildMemberExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -122,6 +126,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Harness2Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ListPageApexController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

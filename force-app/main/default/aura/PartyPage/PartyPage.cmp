@@ -3,48 +3,77 @@
     <aura:attribute name="partyMembers" type="Guild_Member__c[]"/>
     <aura:attribute name="myColumns" type="List"/>
     <aura:attribute name="notRecruiting" type="String"/>
+    <aura:attribute name="show" type="Boolean" default="false" />
+    <aura:attribute name="backgroundImageURL" type="String" default=""/>
+    <!--<aura:attribute name="loaded" type="Boolean" default="false"/>-->
     
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:handler name="change" value="{!v.partyName}" action="{!c.init}" />
+    <aura:registerEvent name="setParty" type="c:PartyPageEvent"/>
     
-    <lightning:layout>
-        <lightning:layoutItem padding="around-small">
-            <lightning:input label="Party Name"
-                                     name="partyname"
-                                     value="{!v.partyName}"
-                                     required="true"/>
-        </lightning:layoutItem>
-        <lightning:layoutItem padding="around-small">
-            <lightning:button label="Search"
-                                      class="slds-m-top_medium"
-                                      variant="brand"
-                                      onclick="{!c.init}"/>
-    	</lightning:layoutItem>
-    </lightning:layout>
-            
-    <lightning:layout>
-        <lightning:layoutItem padding="around-small">
-            <lightning:card title="{!v.partyMembers.Name}">
-        	<!--<lightning:input label="Party Name" value="{!v.partyid}"/>-->
-        		<div style="height: 300px">
-        			<lightning:datatable
-                        keyField="id"
-                        data="{!v.partyMembers}"
-                        columns="{!v.myColumns}"
-                        hideCheckboxColumn="true"/>
-    			</div>
-    		</lightning:card>
-        </lightning:layoutItem>
-    </lightning:layout>
     
-    <lightning:layout>
-        <lightning:layoutItem padding="around-medium">
-    		<ui:outputText value="{!v.notRecruiting}" />
-            &nbsp;&nbsp;
-            <lightning:button variant="brand" label="Join" title="Base action" onclick="{!c.handleClick }"/>
-            
-      		<br/><br/>
-            
-            <div>Go to <a href="/apex/PartyListPage">party list.</a></div>
-		</lightning:layoutItem>
-    </lightning:layout>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div style="{!'position: relative;  background:' + v.backgroundColor + ' url(' + v.backgroundImageURL +') no-repeat;background-position: center;background-size: cover;'}">
+    
+    <div style="margin: auto; width: 50%; padding: 10px;">
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small">
+                <h2 style="color:white;">Party Name</h2>
+                <lightning:input aura:id="val" variant="label-hidden" label="Party Name"
+                                         name="partyname"
+                                         value="{!v.partyName}"
+                                         required="true"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:button label="Search"
+                                          class="slds-m-top_medium"
+                                          variant="brand"
+                                          onclick="{!c.init}"/>
+            </lightning:layoutItem>
+         </lightning:layout>
+     </div>
+           
+     <div style="opacity: .8; margin: auto; width: 50%; border: 3px solid green; padding: 10px;">
+         <lightning:layout>
+            <lightning:layoutItem padding="around-small">
+                <lightning:card title="{!v.partyMembers.Name}">
+                <!--<lightning:input label="Party Name" value="{!v.partyid}"/>-->
+                    <div style="height: 300px">
+                        <lightning:datatable
+                            keyField="id"
+                            data="{!v.partyMembers}"
+                            columns="{!v.myColumns}"
+                            hideCheckboxColumn="true"/>
+                    </div>
+                </lightning:card>
+            </lightning:layoutItem>
+         </lightning:layout>
+     </div>
+    
+     <div style="color:white; margin: auto; width: 50%; padding: 10px; font-size:18px;">
+         <lightning:layout>
+            <lightning:layoutItem padding="around-medium">
+                <ui:outputText value="{!v.notRecruiting}" />
+                &nbsp;&nbsp;
+                <lightning:button variant="brand" label="Join" title="Base action" onclick="{!c.handleClick }"/>
+                
+                <br/><br/>
+                
+                <div>Go to <a href="/apex/PartyListPage">party list.</a></div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    
+        <div style="opacity:.8; background-color:white;">
+        <!--Accordion to show related quests to a specific party-->
+            <lightning:accordion aura:id="accordion" onsectiontoggle="{!c.handleSectionToggle}" activeSectionName="{!v.show}" allowMultipleSectionsOpen="true">
+                <lightning:accordionSection label="Show Related Quests">
+                    <!--<aura:if isTrue="{!v.loaded}">-->
+                        <c:QuestPage partyName="{!v.partyName}"/>
+                    <!--</aura:if>-->	
+                </lightning:accordionSection>
+            </lightning:accordion>
+        </div>
+    </div>
 </aura:component>

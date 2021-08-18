@@ -2,6 +2,7 @@ global with sharing class PartyPageController {
 	//public static String partyid {get;set;}	// id of currentParty
     public static Party__c currentParty {get;set;}	// Party to display on PartyPage
     public static List<Guild_Member__c> currentPartyMembers {get;set;}	// currentParty's guild members
+    public static List<Quest__c> questList {get;set;}	// Quest List
     
 	@AuraEnabled
     public static List<Guild_Member__c> getPartyMembers(String partyName) {
@@ -16,7 +17,7 @@ global with sharing class PartyPageController {
         	currentPartyMembers = [SELECT Name, Class__c, Race__c, Active__c FROM Guild_Member__c WHERE Id IN :ids]; 
             system.debug(currentPartyMembers);
         } else {
-            throw new AuraHandledException('You do not have access to the Party object.');
+           	throw new AuraHandledException('You do not have access to the Party object.');
         }
         
         system.debug(currentPartyMembers);
@@ -56,5 +57,16 @@ global with sharing class PartyPageController {
         catch (DMLException e) {
             ApexPages.addMessage(new ApexPages.message(ApexPages.SEVERITY.FATAL, e.getMessage()));
         }
+    }
+    
+    @AuraEnabled
+    public static List<Quest__c> getQuestList(String partyName) {
+        if(Schema.SObjectType.Quest__c.isAccessible()){
+            questList = [SELECT Id, Party__r.Id, Name, Danger_Level__c, Location__c, Reward__c, Requires_Party__c, Status__c, Quest_Details__c FROM Quest__c WHERE Party__r.Name = :partyName];
+        } else {
+            throw new AuraHandledException('You do not have access to the Quest object.');
+        }
+        
+        return questList;
     }
 }
