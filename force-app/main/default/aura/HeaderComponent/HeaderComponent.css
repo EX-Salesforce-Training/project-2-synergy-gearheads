@@ -4,6 +4,11 @@
     background-color: #34475B;
     overflow-y: auto;    
 }
+.THIS .header-text {
+    font-size: 3rem !important;
+    color: #B8B08D;
+    font-family: 'Brush Script MT',cursive !important;
+}
 
 .THIS .header {
     text-align:center;
@@ -14,10 +19,4 @@
     top: 0;
     z-index: 1;
     background-color: #202C39;
-}
-
-.THIS .header-text {
-    font-size: 3rem !important;
-    color: #B8B08D;
-    font-family: 'Brush Script MT', cursive !important;
 }
