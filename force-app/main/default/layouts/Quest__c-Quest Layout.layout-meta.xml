@@ -91,6 +91,10 @@
                 <behavior>Edit</behavior>
                 <field>Requires_Party__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Details__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
