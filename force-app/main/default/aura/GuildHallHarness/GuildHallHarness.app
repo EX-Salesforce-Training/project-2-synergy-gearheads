@@ -54,6 +54,10 @@
                         </c:ListPageComponent>
                     </div>
 					<div class="slds-col slds-size_5-of-6">
+                        <aura:if isTrue="{!v.pageTitle == 'Guild Hall'}" >
+                            <c:GuildHallComponent recordId="{!v.recordId}" >
+                            </c:GuildHallComponent>
+                        </aura:if>
                         <aura:if isTrue="{!v.pageTitle == 'Item List'}" >
                             <c:itemList >
                             </c:itemList>
