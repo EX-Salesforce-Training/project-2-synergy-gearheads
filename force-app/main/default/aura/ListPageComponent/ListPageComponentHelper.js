@@ -2,24 +2,28 @@
     getCurPage : function(component, event, helper){
 		let pageName = component.get("v.pageTitle");
         
-        if(pageName === "Guild Halls"){
+        if(pageName === "Guild Hall"){
             var action = component.get("c.getHalls");
         } else if (pageName === "Parties"){
             var action = component.get("c.getParties");
+        } else if (pageName === "Guild Members"){
+            var action = component.get("c.getMembers");
         } else if (pageName === "Quests"){
             var action = component.get("c.getQuests");
         } else {
-            var action = component.get("c.getMembers");
+            var action = null;
         }
-        action.setParams({"page": component.get("v.pageNumber")});
-        action.setCallback(this, function(response){
-            let state = response.getState();
-            if (state === "SUCCESS"){
-                let records = response.getReturnValue();
-                component.set("v.objectList", records);
-            }
-        });
-        $A.enqueueAction(action);
+        if (action != null){
+            action.setParams({"page": component.get("v.pageNumber")});
+            action.setCallback(this, function(response){
+                let state = response.getState();
+                if (state === "SUCCESS"){
+                    let records = response.getReturnValue();
+                    component.set("v.objectList", records);
+                }
+            });
+            $A.enqueueAction(action);            
+        }
     },
     
     getPageCount : function(component, event, helper){

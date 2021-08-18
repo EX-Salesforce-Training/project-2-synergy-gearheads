@@ -11,6 +11,9 @@
                 </p>
             </li>
             <li class="nav-bar-link-wrapper">
+				<a href="javascript:void(0)" onclick="{!c.ActivateGuildHall}" class = 'nav-bar-link'>Guild Hall</a>
+            </li>
+            <li class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateItemPage}" class = 'nav-bar-link'>Item List</a>
             </li>
             <li class="nav-bar-link-wrapper">
