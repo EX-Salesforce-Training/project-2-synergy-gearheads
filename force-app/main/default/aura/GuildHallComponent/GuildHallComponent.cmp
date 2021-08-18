@@ -1,5 +1,11 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="pageTitle" type="string" />
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="recordName" type="String" default=""/>
+	<aura:attribute name="pageNumber" type="Integer" default="0" />
+    
     <div class="content-max-height  slds-col slds-size_1-of-1">
-        HeLLO WORLD!
+        {!v.recordId}
+        {!v.pageNumber}
     </div>
 </aura:component>

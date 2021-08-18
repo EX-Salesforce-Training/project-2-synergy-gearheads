@@ -1,5 +1,30 @@
 ({
-	myAction : function(component, event, helper) {
-		
-	}
+	ActivateGuildHall : function(component, event, helper) {
+		component.set("v.pageTitle", "Guild Halls")
+        component.set("v.pageNumber", "0");
+        component.set("v.maxPage", "0");
+	},
+
+    ActivateParty : function(component, event, helper) {
+		component.set("v.pageTitle", "Parties")
+        component.set("v.objectType", "GuildHall");
+        component.set("v.pageNumber", "0");
+        component.set("v.maxPage", "0");
+        console.log("it ran");
+	},
+	ActivateQuest : function(component, event, helper) {
+		component.set("v.pageTitle", "Quests")
+        component.set("v.objectType", "GuildHall");
+        component.set("v.pageNumber", "0");
+        component.set("v.maxPage", "0");
+        console.log("it ran");
+	},
+	ActivateGuildMember : function(component, event, helper) {
+		component.set("v.pageTitle", "Guild Members")
+        component.set("v.objectType", "GuildHall");
+        component.set("v.pageNumber", "0");
+        component.set("v.maxPage", "0");
+        console.log("it ran");
+	},
+    
 })
