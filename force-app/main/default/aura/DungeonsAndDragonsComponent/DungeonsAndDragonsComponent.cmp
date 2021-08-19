@@ -49,19 +49,17 @@
             <aura:if isTrue="{!v.pageTitle != 'Dungeons &amp; Dragons'}" >
 				<div class="slds-grid">
 					<div class="slds-col slds-size_1-of-6">
-                        <aura:if isTrue="{!v.pageTitle != 'Item List'}" >
-                            <c:ListPageComponent recordName = "{!v.recordName}" recordId="{!v.recordId}" pageTitle="{!v.pageTitle}" pageNumber="{!v.pageNumber}" maxPage="{!v.maxPage}">
-                            </c:ListPageComponent>
-                        </aura:if>
+                        <c:ListPageComponent recordName = "{!v.recordName}" recordId="{!v.recordId}" pageTitle="{!v.pageTitle}" pageNumber="{!v.pageNumber}" maxPage="{!v.maxPage}">
+                        </c:ListPageComponent>
                     </div>
 					<div class="slds-col slds-size_4-of-6">
-                        <aura:if isTrue="{!v.pageTitle == 'Dungeons &amp; Dragons'}" >
-                            <c:HomePage>
-                            </c:HomePage>
-                        </aura:if>
                         <aura:if isTrue="{!v.pageTitle == 'Guild Hall'}" >
-                            <c:GuildHallComponent recordId="{!v.recordId}" recordName = "{!v.recordName}" >
+                            <c:GuildHallComponent recordName = "{!v.recordName}" recordId="{!v.recordId}" >
                             </c:GuildHallComponent>
+                        </aura:if>
+                        <aura:if isTrue="{!v.pageTitle == 'Sign Up'}" >
+                            <c:SignUpComponent>
+                            </c:SignUpComponent>
                         </aura:if>
                         <aura:if isTrue="{!v.pageTitle == 'Item List'}" >
                             <c:itemList >

@@ -6,19 +6,22 @@
     <div class="linkbar">
         <div>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateHomePage}" class = 'nav-bar-link'>Home</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateGuildHall}" class = 'nav-bar-link'>Guild Hall</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateGuildHall}" class = 'nav-bar-link'>Guild Halls</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateItemPage}" class = 'nav-bar-link'>Item List</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateItemPage}" class = 'nav-bar-link'>Items</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateQuest}" class = 'nav-bar-link'>Quest List</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateParty}" class = 'nav-bar-link'>Party</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateParty}" class = 'nav-bar-link'>Party List</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateGuildMember}" class = 'nav-bar-link'>Guild Member</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateGuildMember}" class = 'nav-bar-link'>Guild Member List</a>
+            </span>
+            <span class="nav-bar-link-wrapper">
+				<a href="javascript:void(0)" onclick="{!c.ActivateSignUp}" class = 'nav-bar-link'>Sign Up</a>
             </span>
         </div>
 

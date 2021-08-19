@@ -105,6 +105,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FacilitiesController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GuildExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -174,6 +178,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestContentGenerator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestFacilitiesController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

@@ -1,11 +1,12 @@
 ({
-    ActivateHomePage : function(component, event, helper) {
-		component.set("v.pageTitle", "Dungeons &amp; Dragons");
+	ActivateItemPage : function(component, event, helper) {
+		component.set("v.pageTitle", "Item List");
         component.set("v.pageNumber", "0");
         component.set("v.maxPage", "0");
 	},
-	ActivateItemPage : function(component, event, helper) {
-		component.set("v.pageTitle", "Item List");
+    
+	ActivateSignUp : function(component, event, helper) {
+		component.set("v.pageTitle", "Sign Up");
         component.set("v.pageNumber", "0");
         component.set("v.maxPage", "0");
 	},

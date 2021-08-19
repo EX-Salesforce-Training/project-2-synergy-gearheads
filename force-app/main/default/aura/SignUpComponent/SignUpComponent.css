@@ -1,0 +1,12 @@
+.THIS {
+	--sds-c-card-color-background: rgba(200,200,200, .75);
+}
+
+.THIS .container{
+	margin-left:auto;
+	margin-right:0;
+}
+    
+.THIS .label{
+    margin: 1em;
+}

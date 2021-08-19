@@ -1,21 +1,20 @@
 //////////////////////////////////
 //
-// Guild Hall Controller Test
+// Facilities Controller Test
 // 
 // testing coverage 100%
 // utilizes the TestContentGenerator to create random but valid records
 //
-// created on: 8/18/2021
-// last edited: 8/18/2021
+// created on: 8/19/2021
+// last edited: 8/19/2021
 //
 //////////////////////////////////
 
 @isTest
-public class GuildHallControllerTest {
-    @isTest static void TestGetQuestsMethod(){
+public class TestFacilitiesController {
+    @isTest static void TestGetFacilitiesMethod(){
         TestContentGenerator gen = new TestContentGenerator();
         gen.generate();
-        List<sObject> testObject = GuildHallController.getQuests(gen.getRandomObject(gen.questList).Id);
+        List<sObject> testObject = FacilitiesController.getFacilities(gen.getRandomObject(gen.hallList).Id);
     }
-    
 }
