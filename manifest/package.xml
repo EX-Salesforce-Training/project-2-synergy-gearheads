@@ -95,7 +95,13 @@
 		<name>Dashboard</name>
 	</types>
 	<types>
-		<members>*</members>
+		<members>Facility__c-Facility Layout</members>
+		<members>Quest__c-Quest Layout</members>
+		<members>Guild_Hall__c-Guild Hall Layout</members>
+		<members>Guild_Member__c-Guild Member Layout</members>
+		<members>Item__c-Item Layout</members>
+		<members>Member_Assignment__c-Member Assignment Layout</members>
+		<members>Party__c-Party Layout</members>
 		<name>Layout</name>
 	</types>
 	<types>
