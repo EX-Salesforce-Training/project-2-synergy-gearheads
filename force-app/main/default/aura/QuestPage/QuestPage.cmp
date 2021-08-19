@@ -13,7 +13,7 @@
                             <div class="custom-box slds-box slds-p-around_medium" style="color:black; font-size:14px; font-family:Georgia;">
                                   <lightning:card variant="Narrow" title="{!quest.Name}">
                                         <!--<p class="slds-p-horizontal_small"><img src="{!}"/></p>-->
-                                        <p class="slds-p-horizontal_small">Quest Details: {!quest.Quest_Details__c}</p>
+                                        <p class="slds-p-horizontal_small">Quest Details: <lightning:formattedRichText value="{!quest.Quest_Details__c}"/></p>
                                         <p class="slds-p-horizontal_small">Danger Level: {!quest.Danger_Level__c}</p>
                                         <p class="slds-p-horizontal_small">Location: {!quest.Location__c}</p>
                                         <p class="slds-p-horizontal_small">Reward: {!quest.Reward__c}</p>
