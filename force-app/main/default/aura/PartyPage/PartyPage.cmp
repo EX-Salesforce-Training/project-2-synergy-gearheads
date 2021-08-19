@@ -28,7 +28,7 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
-    
+	<div>    
     <div style="margin: auto; width: 50%; padding: 10px;">
         <lightning:layout>
             <lightning:layoutItem padding="around-small">
@@ -47,7 +47,7 @@
          </lightning:layout>
      </div>
            
-     <div style="opacity: .8; margin: auto; width: 50%; padding: 10px;">
+     <div style="opacity: .8; margin: auto; width: 80%; padding: 10px;">
          <lightning:layout>
             <lightning:layoutItem padding="around-small">
                 <lightning:card title="{!v.partyMembers.Name}">
@@ -73,7 +73,6 @@
                 
                 <br/><br/>
                 
-                <div>Go to <a href="/apex/PartyListPage">party list.</a></div>
             </lightning:layoutItem>
         </lightning:layout>
     </div>
@@ -88,5 +87,5 @@
                 </lightning:accordionSection>
             </lightning:accordion>
         </div>
-   
+     </div>
 </aura:component>
