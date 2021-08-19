@@ -117,6 +117,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GuildHallControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GuildMemberExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -130,6 +134,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ListPageApexController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ListPageConTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -162,6 +170,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QuestPageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestContentGenerator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
