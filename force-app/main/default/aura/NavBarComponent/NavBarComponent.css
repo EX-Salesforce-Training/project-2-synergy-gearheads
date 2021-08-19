@@ -1,17 +1,21 @@
 .THIS {
 	background-color: #283845;
-	height: 100vh;
+}
+
+.THIS.linkbar{
+	text-align: center;
 }
 
 .THIS .nav-bar-links {
     width:100%;
-	display: flex-column;
     justify-content: space-around;                            
 }
 
 .THIS .nav-bar-link-wrapper {
-	height: 1.8rem;
-    display: flex;
+	display: inline-block;
+    height: 1.8rem;
+    margin-left: auto;
+    margin-right: auto;
     align-items: center;
 	transition: background-color 0.8s;
 }
@@ -38,8 +42,6 @@
 	width: 100%;
 	background-color: #161E27;
 	color: #7d9cb5;
-	display: flex;
-	justify-content: center;
 	padding: 0.3rem 0;
 }
 

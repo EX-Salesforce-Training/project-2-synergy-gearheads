@@ -4,45 +4,57 @@
     <aura:attribute name="objBase" type="Object" />
     <aura:attribute name="facilities" type="Facility__c[]" />
     <aura:attribute name="quests" type="Quest__c[]" />
+    <aura:attribute name="questColumns" type="List" />
+    <aura:attribute name="facColumns" type="List" />
     <aura:attribute name="potato" type="String" />
     <aura:attribute name="recordId" type="String" default=""/>
-    <aura:attribute name="recordName" type="String" default=""/>
+    <aura:attribute name="recordName" type="String" default="None Selected"/>
 	<aura:attribute name="pageNumber" type="Integer" default="0" />
-
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div class="slds-align_absolute-center  slds-text-heading_large">
+            {!v.recordName}
+        </div>        	
+    </aura:attribute>
+    
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <aura:handler name="change" value="{!v.recordId}" action="{!c.init}"/>
-    <div class="content-max-height  slds-col slds-size_1-of-1">
+	<div class="slds-grid">
+        <div class="slds-size_1-of-12">
+        </div>
+        <div class="slds-size_10-of-12" style="margin-top:5%;">
+            <div class="content-max-height  slds-col slds-size_1-of-1 display">
+                <div class="slds-align_absolute-center display">
+                    <lightning:card class=" slds-text-heading_large" title="{!v.headerTitle}"></lightning:card>
+                </div>
 
-        <div class="table-title" >
-        	<h2>Available Facilties</h2>
+                <lightning:card title="Available Quests">
+                    <lightning:accordion aura:id="accordion" >
+                        <aura:iteration items="{!v.quests}" var="quest">
+                            <lightning:accordionSection label="{!quest.Name}" >
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_1-of-4 record">
+                                        Danger Level: {!quest.Danger_Level__c}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-4 record">
+                                        Quest Details: <lightning:formattedRichText value="{!quest.Quest_Details__c}"/>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-4 record">
+                                        Reward: {!quest.Reward__c}
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-4 record">
+                                        Status: {!quest.Status__c}
+                                    </div>                            
+                                </div>
+                            </lightning:accordionSection>
+                        </aura:iteration>
+                    </lightning:accordion>                
+                </lightning:card>
+            </div>    
+            <c:FacilitiesComponent recordId="{!v.recordId}">
+            	
+            </c:FacilitiesComponent>
         </div>
-        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
-        	<lightning:layout horizontalAlign="space" verticalAlign="left" multipleRows="true">
-            	<aura:iteration items="{!v.facilities}" var="facility">
-					<lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="4" mediumDeviceSize="4" largeDeviceSize="4" padding="around-small">
-						<div class="custom-box slds-box slds-p-around_medium" style="color:black; font-size:14px; font-family:Georgia;">
-                        	<lightning:card variant="Narrow" title="{!facility.Name}">
-                            </lightning:card>
-                        </div>
-                    </lightning:layoutItem>
-                </aura:iteration>
-            </lightning:layout>
+        <div class="slds-size_1-of-12">
         </div>
-        <div class="table-title" >
-            <h2>Available Quests</h2>
-        </div>
-        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
-        	<lightning:layout horizontalAlign="space" verticalAlign="left" multipleRows="true">
-            	<aura:iteration items="{!v.quests}" var="quest">
-					<lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="4" mediumDeviceSize="4" largeDeviceSize="4" padding="around-small">
-						<div class="custom-box slds-box slds-p-around_medium" style="color:black; font-size:14px; font-family:Georgia;">
-                        	<lightning:card variant="Narrow" title="{!quest.Name}">
-                            </lightning:card>
-                        </div>
-                    </lightning:layoutItem>
-                </aura:iteration>
-            </lightning:layout>
-        </div>
-        
     </div>
 </aura:component>

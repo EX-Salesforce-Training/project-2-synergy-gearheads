@@ -13,43 +13,38 @@
 <aura:component controller="userInfoCardApexController">
     <aura:attribute name="guildMember" type="Guild_Member__c"
                     default="{'sobjectType' : 'Guild_Member__c'}"/>
-    <aura:attribute name="memberId" type="String" default="a025e000007LfGcAAK"/>
+    <aura:attribute name="memberId" type="String"/>
     <aura:attribute name="columns" type="List"/>
     <aura:attribute name="itemData" type="Object[]"/>
-
-    <aura:attribute name="backgroundImageURL" type="String" default=""/>
     <aura:attribute name="loaded" type="Boolean" default="false"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
     <aura:handler name="change" value="{!v.memberId}" action="{!c.doInit}" />
     
-    <div style="{!'position: relative;  background:' + v.backgroundColor + ' url(' + v.backgroundImageURL +') no-repeat;background-position: center;background-size: cover;'}">
         <div class="slds-grid slds-wrap">
             <div class="slds-col slds-size_2-of-12">
                 
             </div>
-            <div class="slds-col slds-size_8-of-12" style="opacity:.8">
+            <div class="slds-col slds-size_8-of-12" style="opacity:.8; margin-top: 5%">
                 <lightning:card title="{!v.guildMember.Name}" class="card">
                     <p class="slds-p-horizontal_small">
                         <div class="slds-grid slds-wrap" >
                             <div class="slds-col slds-size_1-of-6" style="text-align: center; font-weight: bold;font-size: 130%;color:red">
                                 {!v.guildMember.Race__c}
                             </div>
-                            <div>
-                                <div class="slds-col slds-size_1-of-6">
-                                    Guild Hall: <br/>
-                                    Class: <br/>
-                                    Skills: <br/>
-                                    Active: <br/>
-                                    Age: <br/>
-                                    Date Hired: <br/>
-                            	</div>
+                            <div class="slds-col slds-size_1-of-6">
+                                Guild Hall: <br/>
+                                Class: <br/>
+                                Skills: <br/>
+                                Active: <br/>
+                                Age: <br/>
+                                Date Hired: <br/>
                             </div>
                             
                             <div class="slds-col slds-size_3-of-6">
                                 {!v.guildMember.Guild_Hall__r.Name}<br/>
                                 {!v.guildMember.Class__c}<br/>
                                 {!v.guildMember.Skills__c}<br/>                            
-                                <force:outputField value="{!v.guildMember.Active__c}"/><br/>
+                                {!v.guildMember.Active__c}<br/>
                                 {!v.guildMember.Age__c}<br/>
                                 <ui:outputDate value="{!v.guildMember.Date_Hired__c}"/><br/>
                             </div>
@@ -81,6 +76,9 @@
                                 <aura:if isTrue="{!v.guildMember.Fighter_Level__c}">
                                     Fighter Level: <br/>
                                 </aura:if>
+                                <aura:if isTrue="{!v.guildMember.Paladin_Level__c}">
+                                    Paladin Level: <br/>
+                                </aura:if>
                             </div>
                             <div class="slds-col slds-size_1-of-6">
                                 <aura:if isTrue="{!v.guildMember.Artificer_Level__c}">
@@ -100,6 +98,9 @@
                                 </aura:if>
                                 <aura:if isTrue="{!v.guildMember.Fighter_Level__c}">
                                     {!v.guildMember.Fighter_Level__c}<br/>
+                                </aura:if>
+                                <aura:if isTrue="{!v.guildMember.Paladin_Level__c}">
+                                    {!v.guildMember.Paladin_Level__c}<br/>
                                 </aura:if>
                             </div>
                             <div class="slds-col slds-size_1-of-6">
@@ -151,12 +152,12 @@
                 <lightning:card title="Item Information" class="card">
                     <p class="slds-p-horizontal_small">
                         <div class="slds-grid slds-wrap" >
-                            <div class="slds-col slds-size_1-of-6" style="text-align: center; font-weight: bold;font-size: 130%;color:red">
+                            <div class="slds-col slds-size_1-of-6">
                                 
                             </div>
                             <div class="slds-col slds-size_4-of-6">
                                 <aura:if isTrue="{!v.loaded}">
-                                      <c:userItemInfo memberId="{!v.guildMember.Id}" />
+                                      <c:userItemInfo memberId="{!v.memberId}" />
                                 </aura:if>
                                 
                             </div>
@@ -171,5 +172,4 @@
                 
             </div>
         </div>
-    </div>
 </aura:component>
