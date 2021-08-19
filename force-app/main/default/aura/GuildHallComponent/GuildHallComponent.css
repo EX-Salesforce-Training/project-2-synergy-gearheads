@@ -1,2 +1,8 @@
 .THIS {
+	--sds-c-card-color-background: rgba(200,200,200, .85);
+
 }
+
+.THIS .display{
+	margin-bottom: 1em;
+    }

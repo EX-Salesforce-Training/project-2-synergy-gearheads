@@ -54,8 +54,12 @@
                     </div>
 					<div class="slds-col slds-size_4-of-6">
                         <aura:if isTrue="{!v.pageTitle == 'Guild Hall'}" >
-                            <c:GuildHallComponent recordId="{!v.recordId}" >
+                            <c:GuildHallComponent recordName = "{!v.recordName}" recordId="{!v.recordId}" >
                             </c:GuildHallComponent>
+                        </aura:if>
+                        <aura:if isTrue="{!v.pageTitle == 'Sign Up'}" >
+                            <c:SignUpComponent>
+                            </c:SignUpComponent>
                         </aura:if>
                         <aura:if isTrue="{!v.pageTitle == 'Item List'}" >
                             <c:itemList >

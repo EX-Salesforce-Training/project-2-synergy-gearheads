@@ -20,6 +20,9 @@
             <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateGuildMember}" class = 'nav-bar-link'>Guild Member List</a>
             </span>
+            <span class="nav-bar-link-wrapper">
+				<a href="javascript:void(0)" onclick="{!c.ActivateSignUp}" class = 'nav-bar-link'>Sign Up</a>
+            </span>
         </div>
 
     </div>

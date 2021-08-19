@@ -1,0 +1,43 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<aura:attribute name="headerTitle" type="Aura.Component[]">
+        <div class="slds-align_absolute-center  slds-text-heading_large">
+            Sign up as a Member Today!
+        </div>        	
+    </aura:attribute>
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+	<div class="slds-grid">
+    	<div class="slds-row slds-size_2-of-8">
+        </div>
+    	<div class="slds-row slds-size_4-of-8">
+            <lightning:card class=" slds-text-heading_large" title="{!v.headerTitle}">
+                <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+					<div class="container">
+                        <input type='hidden' name="oid" value="00D5f000000H9kV"/>
+                        <input type='hidden' name="retURL" value="https://cunning-hawk-u74cdi-dev-ed.lightning.force.com/c/GuildHallHarness.app"/>
+                        <div class="input">
+                        <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="15" type="text" /><br/>
+                        </div>                
+                        <div class="input">
+                        <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br/>
+                        </div>                
+                        <div class="input">
+                        <label for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br/>
+                        </div>                
+                        <div class="input">
+                        <label for="state">State/Province</label><input  id="state" maxlength="20" name="state" size="20" type="text" /><br/>
+                        </div>                
+                        <div class="input">
+                        <input type="submit" name="submit"/>
+                        </div>                
+                    </div>
+                
+                </form>
+            </lightning:card>
+        </div>
+    	<div class="slds-row slds-size_2-of-8">
+        </div>
+        
+    </div>
+        
+
+</aura:component>

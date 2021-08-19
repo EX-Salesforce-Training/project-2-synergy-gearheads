@@ -11,13 +11,7 @@
  */
 
 ({
-    doInit : function(component, event, helper) {
-        let url = $A.get('$Resource.BackgroundImage');
-        component.set('v.backgroundImageURL', url);
-    }, 
-    
-    init : function(component, event, helper) {
-        
+	doInit : function(component, event, helper) {
 		component.set("v.columns", [
                               {label: "Item Name", fieldName: "Name", type:"String"},
                               {label: "Item Type", fieldName: "Item_Type__c", type: "Picklist"},

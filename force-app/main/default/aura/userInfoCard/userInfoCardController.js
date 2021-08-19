@@ -12,7 +12,7 @@
 
 ({
 	doInit : function(component, event, helper) {
-        let url = $A.get('$Resource.BackgroundImage');
+        let url = $A.get('$Resource.UserInfoPageBackground');
         component.set('v.backgroundImageURL', url);
         
         let action = component.get("c.getMember");

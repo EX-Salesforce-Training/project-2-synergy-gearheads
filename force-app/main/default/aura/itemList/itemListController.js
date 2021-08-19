@@ -3,7 +3,7 @@
  * Title: itemListController.js
  * Author: Dominic Romanello
  * Created: 8/16/21
- * LastModified: 8/18/21
+ * LastModified: 8/16/21
  * LastModifiedBy: Dominic Romanello
  * Description: 
  * 
@@ -40,7 +40,7 @@
                 break;
             case "above50k":
                 var lower = 50000;
-                var upper = 999999999;
+                var upper = 9999999999;
                 break;
         }
         helper.valueFilter(component, lower, upper);

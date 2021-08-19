@@ -1,0 +1,17 @@
+<aura:component controller="FacilitiesController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="facilities" type="Facility__c[]" />
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="recordName" type="String" default="None Selected"/>
+    <aura:handler name="change" value="{!v.recordId}" action="{!c.init}"/>
+    <lightning:card title="Available Facilities">
+        <div class="display">
+            <Lightning:accordion aura:id="Facilities Available" >
+                <aura:iteration items="{!v.facilities}" var="fac">
+                    <lightning:accordionSection label="{!fac.Name}">
+                        {!fac.Supported_Skills__c}
+                    </lightning:accordionSection>
+                </aura:iteration>
+            </Lightning:accordion>
+        </div>
+    </lightning:card>
+</aura:component>

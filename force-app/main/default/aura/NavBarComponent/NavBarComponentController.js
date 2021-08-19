@@ -5,6 +5,12 @@
         component.set("v.maxPage", "0");
 	},
     
+	ActivateSignUp : function(component, event, helper) {
+		component.set("v.pageTitle", "Sign Up");
+        component.set("v.pageNumber", "0");
+        component.set("v.maxPage", "0");
+	},
+    
 	ActivateGuildHall : function(component, event, helper) {
 		component.set("v.pageTitle", "Guild Hall");
         component.set("v.pageNumber", "0");
