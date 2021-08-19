@@ -10,19 +10,15 @@
  ******************************************************** 
  */
 
-({
-    doInit : function(component, event, helper) {
-        let url = $A.get('$Resource.BackgroundImage');
-        component.set('v.backgroundImageURL', url);
-    }, 
-    
+({  
     init : function(component, event, helper) {
         
 		component.set("v.columns", [
                               {label: "Item Name", fieldName: "Name", type:"String"},
+            					{label: "Value", fieldName: "Value__c", type:"currency", typeAttributes:{currencyCode: 'USD'}},
                               {label: "Item Type", fieldName: "Item_Type__c", type: "Picklist"},
-                              {label: "Properties", fieldName: "Properties__c", type:"String"},
-                              {label: "Value", fieldName: "Value__c", type:"currency", typeAttributes:{currencyCode: 'USD'}}
+                              {label: "Properties", fieldName: "Properties__c", type:"String"}
+                              
                               ]);
         let action = component.get("c.getItems");
         let memberId = component.get("v.memberId");
