@@ -16,8 +16,13 @@
     background-color: #202C39;
 }
 
+@font-face{
+    font-family: 'BrushScript';
+    src: url(/resource/BrushScript);    
+}
+
 .THIS .header-text {
+    font-family: 'BrushScript';
     font-size: 3rem !important;
     color: #B8B08D;
-    font-family: 'Brush Script MT', cursive !important;
 }

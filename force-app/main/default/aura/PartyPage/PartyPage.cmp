@@ -28,7 +28,6 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     
-    <div style="{!'position: relative;  background:' + v.backgroundColor + ' url(' + v.backgroundImageURL +') no-repeat;background-position: center;background-size: cover;'}">
     
     <div style="margin: auto; width: 50%; padding: 10px;">
         <lightning:layout>
@@ -89,5 +88,5 @@
                 </lightning:accordionSection>
             </lightning:accordion>
         </div>
-    </div>
+   
 </aura:component>
