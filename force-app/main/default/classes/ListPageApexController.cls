@@ -1,3 +1,17 @@
+////////////////////////////////
+//
+// List Page Apex Controller
+// functions: gets count of records for an object
+// 				for pagenation purposes,
+// 			  Retrieves list of requests records of limit 20,
+// 			  	offset = page * limit
+// 			  	
+// created 8/15/2021
+// last edited 8/18/2021
+//
+//
+////////////////////////////////
+
 public with sharing class ListPageApexController {
 
     private static final string selection_template = 'SELECT Id, Name {0} FROM {1} ORDER BY Id LIMIT {2} OFFSET {3}';

@@ -3,7 +3,7 @@
  * Title: itemList.cmp
  * Author: Dominic Romanello
  * Created: 8/16/21
- * LastModified: 8/16/21
+ * LastModified: 8/18/21
  * LastModifiedBy: Dominic Romanello
  * Description: 
  * 
@@ -32,10 +32,10 @@
                             <option value="">choose one...</option>
                             <option value="ammunition">Ammunition</option>
                             <option value="armor">Armor</option>
-                            <option value="castingFocus">Casting Focus</option>
-                            <option value="craftingMaterial">Crafting Material</option>
-                            <option value="spellComponents">Spell Components</option>
-                            <option value="utilityItem">Utility Item</option>
+                            <option value="casting focus">Casting Focus</option>
+                            <option value="crafting material">Crafting Material</option>
+                            <option value="spell components">Spell Components</option>
+                            <option value="utility item">Utility Item</option>
                             <option value="other">Other</option>
                         </lightning:select>
                         <lightning:select aura:id="selectGuild" name="selectGuild" label="Is it Guild Owned?" onchange="{!c.selectByGuild}">

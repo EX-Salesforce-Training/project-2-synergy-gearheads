@@ -1,7 +1,8 @@
 <aura:component controller="GuildHallController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
     <aura:attribute name="pageTitle" type="string" />
+    <aura:attribute name="hallList" type="Guild_Hall__c[]" />
+    <aura:attribute name="objBase" type="Object" />
     <aura:attribute name="facilities" type="Facility__c[]" />
-    <aura:attribute name="parties" type="Party__c[]" />
     <aura:attribute name="quests" type="Quest__c[]" />
     <aura:attribute name="potato" type="String" />
     <aura:attribute name="recordId" type="String" default=""/>
@@ -10,17 +11,38 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <aura:handler name="change" value="{!v.recordId}" action="{!c.init}"/>
-    {!v.recordId}
     <div class="content-max-height  slds-col slds-size_1-of-1">
-		<div class="recordList" >
-        	<div class="recordType" >
-            	Available Facilities
-            </div>
-            <aura:iteration var="curRecord" items="{!v.facilities}" >
-                <div class="selectable" >
-                    {!curRecord.Name}
-                </div>
-            </aura:iteration>
+
+        <div class="table-title" >
+        	<h2>Available Facilties</h2>
         </div>
+        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+        	<lightning:layout horizontalAlign="space" verticalAlign="left" multipleRows="true">
+            	<aura:iteration items="{!v.facilities}" var="facility">
+					<lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="4" mediumDeviceSize="4" largeDeviceSize="4" padding="around-small">
+						<div class="custom-box slds-box slds-p-around_medium" style="color:black; font-size:14px; font-family:Georgia;">
+                        	<lightning:card variant="Narrow" title="{!facility.Name}">
+                            </lightning:card>
+                        </div>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+        </div>
+        <div class="table-title" >
+            <h2>Available Quests</h2>
+        </div>
+        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+        	<lightning:layout horizontalAlign="space" verticalAlign="left" multipleRows="true">
+            	<aura:iteration items="{!v.quests}" var="quest">
+					<lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="4" mediumDeviceSize="4" largeDeviceSize="4" padding="around-small">
+						<div class="custom-box slds-box slds-p-around_medium" style="color:black; font-size:14px; font-family:Georgia;">
+                        	<lightning:card variant="Narrow" title="{!quest.Name}">
+                            </lightning:card>
+                        </div>
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </lightning:layout>
+        </div>
+        
     </div>
 </aura:component>

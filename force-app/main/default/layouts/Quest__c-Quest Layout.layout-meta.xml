@@ -101,10 +101,6 @@
                 <behavior>Required</behavior>
                 <field>Quest_Postal_Code__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Details__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
