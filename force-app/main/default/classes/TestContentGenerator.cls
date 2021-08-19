@@ -76,7 +76,6 @@ public class TestContentGenerator {
             quest.Quest_Postal_Code__c = getPostal();
             quest.Quest_Street__c = nameGen();
             quest.Quest_Details__c = 'hanna bannana ramamlaqma';
-            quest.Details__c = 'haahahahahahahahaha';
             questList.add(quest);
             
         }

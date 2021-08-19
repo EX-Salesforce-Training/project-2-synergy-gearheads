@@ -71,10 +71,6 @@
                             <c:itemList >
                             </c:itemList>
                         </aura:if>
-                        <aura:if isTrue="{!v.pageTitle == 'Quests'}" >
-                            <c:QuestPage>
-                            </c:QuestPage>
-                        </aura:if>
                         <aura:if isTrue="{!v.pageTitle == 'Parties'}" >
                             <c:PartyPage partyName="{!v.recordName}">
                             </c:PartyPage>

@@ -15,9 +15,6 @@
 				<a href="javascript:void(0)" onclick="{!c.ActivateItemPage}" class = 'nav-bar-link'>Item List</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateQuest}" class = 'nav-bar-link'>Quest List</a>
-            </span>
-            <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateParty}" class = 'nav-bar-link'>Party List</a>
             </span>
             <span class="nav-bar-link-wrapper">
