@@ -8,7 +8,7 @@
             <Lightning:accordion aura:id="Facilities Available" >
                 <aura:iteration items="{!v.facilities}" var="fac">
                     <lightning:accordionSection label="{!fac.Name}">
-                        {!fac.Supported_Skills__c}
+                        Supported Skills: {!fac.Supported_Skills__c}
                     </lightning:accordionSection>
                 </aura:iteration>
             </Lightning:accordion>
