@@ -1,3 +1,17 @@
+<!--
+ * ****************************************************************************************
+ * Title: PartyPage.cmp
+ * Author: Nouh Anies	
+ * Created: 8/10/21
+ * LastModified: 8/18/21
+ * LastModifiedBy: Nouh Anies
+ * Description: Party page component diplays the party page with guild members assigned 
+                to this party.Also it references the quest page component to show related
+                quests to the part 
+ * 
+ ****************************************************************************************** 
+-->
+
 <aura:component controller="PartyPageController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
     <aura:attribute name="partyName" type="String"/>
     <aura:attribute name="partyMembers" type="Guild_Member__c[]"/>
@@ -34,7 +48,7 @@
          </lightning:layout>
      </div>
            
-     <div style="opacity: .8; margin: auto; width: 50%; border: 3px solid green; padding: 10px;">
+     <div style="opacity: .8; margin: auto; width: 50%; padding: 10px;">
          <lightning:layout>
             <lightning:layoutItem padding="around-small">
                 <lightning:card title="{!v.partyMembers.Name}">
