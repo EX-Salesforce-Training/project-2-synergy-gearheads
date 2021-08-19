@@ -3,29 +3,24 @@
     <aura:attribute name="objectType" type="String" />
     <aura:attribute name="pageNumber" type="Integer" />
     <aura:attribute name="maxPage" type="Integer" />
-    <div class="slds-grid">
-    	<ul class="nav-bar-links">
-        	<li class="nav-bar-header">
-            	<p>
-                	Navigation
-                </p>
-            </li>
-            <li class="nav-bar-link-wrapper">
+    <div class="linkbar">
+        <div>
+            <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateGuildHall}" class = 'nav-bar-link'>Guild Hall</a>
-            </li>
-            <li class="nav-bar-link-wrapper">
+            </span>
+            <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateItemPage}" class = 'nav-bar-link'>Item List</a>
-            </li>
-            <li class="nav-bar-link-wrapper">
+            </span>
+            <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateQuest}" class = 'nav-bar-link'>Quest List</a>
-            </li>
-            <li class="nav-bar-link-wrapper">
+            </span>
+            <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateParty}" class = 'nav-bar-link'>Party List</a>
-            </li>
-            <li class="nav-bar-link-wrapper">
+            </span>
+            <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateGuildMember}" class = 'nav-bar-link'>Guild Member List</a>
-            </li>
+            </span>
+        </div>
 
-        </ul>
     </div>
 </aura:component>

@@ -12,7 +12,9 @@
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <aura:handler name="change" value="{!v.recordId}" action="{!c.init}"/>
     <div class="content-max-height  slds-col slds-size_1-of-1">
-
+		<div class="record-title">
+            <h1>{!v.recordName}</h1>
+        </div>
         <div class="table-title" >
         	<h2>Available Facilties</h2>
         </div>
