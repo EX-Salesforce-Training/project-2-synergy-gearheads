@@ -37,11 +37,11 @@ public class TestContentGenerator {
     public List<Account> accountList = new List<Account>();
     public List<Contact> contactList = new List<Contact>();
     public List<Guild_Hall__c> hallList = new List<Guild_Hall__c>();
-    public List<Guild_Member__c> memberList = new List<Guild_Member__c>();
-    public List<Facility__c> facilityList = new List<Facility__c>();
-    public List<Item__c> itemList = new List<Item__c>();
+	public List<Guild_Member__c> memberList = new List<Guild_Member__c>();
+	public List<Facility__c> facilityList = new List<Facility__c>();
+	public List<Item__c> itemList = new List<Item__c>();
     public List<Party__c> partyList = new List<Party__c>();
-    public List<Member_Assignment__c> assignmentList = new List<Member_Assignment__c>();
+	public List<Member_Assignment__c> assignmentList = new List<Member_Assignment__c>();
     public List<Quest__c> questList = new List<Quest__c>();
     
     public void generate(){
@@ -50,7 +50,7 @@ public class TestContentGenerator {
         generateGuildHall(numOfGuildHalls);
         generateMembers(numOfGuildMembers);
         generateFacilities(numOfFacilities);
-        generateItems(numOfItems);
+		generateItems(numOfItems);
         generateParties(numOfParties);
         generateMemberAssignments();
         generateQuests(numOfQuests);
@@ -76,6 +76,7 @@ public class TestContentGenerator {
             quest.Quest_Postal_Code__c = getPostal();
             quest.Quest_Street__c = nameGen();
             quest.Quest_Details__c = 'hanna bannana ramamlaqma';
+            quest.Details__c = 'haahahahahahahahaha';
             questList.add(quest);
             
         }
@@ -86,7 +87,7 @@ public class TestContentGenerator {
     public void generateMemberAssignments(){
         for (Guild_Member__c member: memberList){
             Member_Assignment__c assign = new Member_Assignment__c();
-            Party__c part = ((Party__c) getRandomObject(partyList));
+			Party__c part = ((Party__c) getRandomObject(partyList));
             assign.Party__c = part.id;
             assign.Guild_Member__c = member.id;
             assignmentList.add(assign);            
@@ -101,7 +102,7 @@ public class TestContentGenerator {
         integer month = integer.valueof(Math.random() * 12 +1 );
         integer day =  integer.valueof(Math.random() * 28 + 1);
         Date myDate = Date.newInstance(year, month ,day );
-        return myDate;
+		return myDate;
     }
     
     public String getPostal(){
@@ -121,7 +122,7 @@ public class TestContentGenerator {
             part.Name = getEsoName();
             part.Max_Party_Size__c = 4+ rollD6();
             part.Minimum_Level_Required__c = 1;
-            partyList.add(part);
+			partyList.add(part);
         }
         Database.insert(partyList);
         system.debug(partyList);
@@ -138,7 +139,7 @@ public class TestContentGenerator {
             item.Guild_Member__c = mem.id;
             item.Damage__c = '1d4';
             item.Damage_Type__c = 'Slashing';
-            itemList.add(item);
+			itemList.add(item);
         }
         database.insert(itemList);
         system.debug(itemList);
@@ -181,15 +182,15 @@ public class TestContentGenerator {
             mem.Rogue_Level__c = rollD20();
             mem.Skills__c = 'Athletics';
             mem.Sorcerer_Level__c = rollD20();
-            memberList.add(mem);
+			memberList.add(mem);
         }
         database.insert(memberList);
         system.debug(memberList);
     }
     
     public String genEmail(String name){
-        String[] splitStr = name.split(' ');
-        String newStr = '';
+		String[] splitStr = name.split(' ');
+		String newStr = '';
         for(String s: splitStr){
             newStr = newStr + s;
         }
@@ -229,7 +230,7 @@ public class TestContentGenerator {
         }
         database.insert(contactList);
         system.debug(contactList);
-    }       
+    }	    
 
     public void generateAccounts(integer maxAccounts){
         for(integer cur = 0; cur < maxAccounts; cur++){
@@ -253,22 +254,22 @@ public class TestContentGenerator {
         return getSelection(firstNames) + ' ' + getSelection(lastNames);
     }
     
-    public string NameGen(){
-        //selects the length of the name, min 3, max 15
+	public string NameGen(){
+		//selects the length of the name, min 3, max 15
         integer length = Integer.valueof((Math.random()*maxNameLength))+3;
-        //selects if the vowels are the even letters or not
+		//selects if the vowels are the even letters or not
         integer even = Integer.valueof((Math.random()*2));
         string pokeName = '';
 
         //loops over the length of the name
         for(integer pos = 0; pos < length; pos++){
-            string letter = '';
-            //if the pos mod 2 doesn't match even then use a random consanant, else use a random vowel
+			string letter = '';
+			//if the pos mod 2 doesn't match even then use a random consanant, else use a random vowel
             if (Math.mod(pos, 2) != even){
-                integer selection = Integer.valueof((Math.random()*cons.length()));
+				integer selection = Integer.valueof((Math.random()*cons.length()));
                 letter = cons.substring(selection, selection+1);
             }else{
-                integer selection = Integer.valueof((Math.random()*vowels.length()));
+				integer selection = Integer.valueof((Math.random()*vowels.length()));
                 letter = vowels.substring(selection, selection+1);                
             }
             pokeName += letter;
