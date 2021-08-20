@@ -160,7 +160,10 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Member Assignments</pluralLabel>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Guild_Member__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Party__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

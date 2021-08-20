@@ -1,6 +1,6 @@
 ({
 	ActivateHomePage : function(component, event, helper) {
-		component.set("v.pageTitle", "Dungeons &amp; Dragons");
+		component.set("v.pageTitle", "Dungeons & Dragons");
 		component.set("v.pageNumber", "0");
         component.set("v.maxPage", "0");
 	},
