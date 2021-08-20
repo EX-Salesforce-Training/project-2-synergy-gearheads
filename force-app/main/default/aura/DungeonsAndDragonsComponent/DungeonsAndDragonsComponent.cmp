@@ -49,7 +49,7 @@
             <aura:if isTrue="{!v.pageTitle != 'Dungeons &amp; Dragons'}" >
 				<div class="slds-grid">
 					<div class="slds-col slds-size_1-of-6">
-                        <aura:if isTrue="{!v.pageTitle != 'Item List'}" >
+                        <aura:if isTrue="{!and(v.pageTitle != 'Item List', v.pageTitle != 'Sign Up')}" >
                             <c:ListPageComponent recordName = "{!v.recordName}" recordId="{!v.recordId}" pageTitle="{!v.pageTitle}" pageNumber="{!v.pageNumber}" maxPage="{!v.maxPage}">
                             </c:ListPageComponent>
                         </aura:if>

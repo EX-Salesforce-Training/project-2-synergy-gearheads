@@ -55,26 +55,28 @@
                     <div style="height: 300px">
                         <lightning:datatable
                             keyField="id"
-                            data="{!v.partyMembers}"
-                            columns="{!v.myColumns}"
-                            hideCheckboxColumn="true"/>
+                                             data="{!v.partyMembers}"
+                                             columns="{!v.myColumns}"
+                                             hideCheckboxColumn="true"/>
                     </div>
                 </lightning:card>
-            </lightning:layoutItem>
+             </lightning:layoutItem>
          </lightning:layout>
-     </div>
-    
-     <div style="color:white; margin: auto; width: 50%; padding: 10px; font-size:18px;">
-         <lightning:layout>
-            <lightning:layoutItem padding="around-medium">
-                <ui:outputText value="{!v.notRecruiting}" />
-                &nbsp;&nbsp;
-                <lightning:button variant="brand" label="Join" title="Base action" onclick="{!c.handleClick }"/>
-                
-                <br/><br/>
-                
-            </lightning:layoutItem>
-        </lightning:layout>
+        </div>
+        
+        <div style="color:black; margin: auto; width: 25%; padding: 10px; font-size:18px;opacity:0.8;">
+            <lightning:card variant="Narrow">
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-medium">
+                        <ui:outputText value="{!v.notRecruiting}" />
+                        &nbsp;&nbsp;
+                        <lightning:button variant="brand" label="Join" title="Base action" onclick="{!c.handleClick }"/>
+                        
+                        <br/><br/>
+                        
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:card>
     </div>
     
         <div style="opacity:.8; background-color:white;">
