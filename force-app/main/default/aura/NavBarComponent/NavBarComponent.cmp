@@ -9,16 +9,16 @@
 				<a href="javascript:void(0)" onclick="{!c.ActivateHomePage}" class = 'nav-bar-link'>Home</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateGuildHall}" class = 'nav-bar-link'>Guild Hall</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateGuildHall}" class = 'nav-bar-link'>Guild Halls</a>
             </span>
             <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateItemPage}" class = 'nav-bar-link'>Item List</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateParty}" class = 'nav-bar-link'>Party List</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateParty}" class = 'nav-bar-link'>Party</a>
             </span>
             <span class="nav-bar-link-wrapper">
-				<a href="javascript:void(0)" onclick="{!c.ActivateGuildMember}" class = 'nav-bar-link'>Guild Member List</a>
+				<a href="javascript:void(0)" onclick="{!c.ActivateGuildMember}" class = 'nav-bar-link'>Guild Members</a>
             </span>
             <span class="nav-bar-link-wrapper">
 				<a href="javascript:void(0)" onclick="{!c.ActivateSignUp}" class = 'nav-bar-link'>Sign Up</a>
