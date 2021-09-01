@@ -13,9 +13,6 @@ Fantasy Guild Coordination software.
 ## Getting Started
 ### Salesforce Platform
 - Created a new org
-- Drafted an Entity Relationship Table (ERD) based on business need, and implemented it as a series of interconnected objects with security enforced.
-   - The purpose of each object is explained in-depth in the "Each Object and Its Purpose" section of this repo's wiki
-   - The ERD is shown in [this pdf.](https://github.com/EX-Salesforce-Training/Project-1---sinister-six-2-thistimeitspersonal/files/7022421/D.DU.ERD.pdf)
 - Wrote triggers and tests for objects to initialize preliminary functionality.
 
 ### Github
