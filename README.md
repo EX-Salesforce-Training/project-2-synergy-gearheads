@@ -1,7 +1,7 @@
 # PROJECT TWO
 
 ## Project Description
-Fantasy Guild Coordination software. 
+Fantasy Guild Coordination software. Allows Guilds to add new members, track parties and their progress through quests, and assign quests based on difficulty and location.
 
 ## Technologies Used
 - Visual Studio, ver. 1.59.0
