@@ -31,7 +31,7 @@ Fantasy Guild Coordination software. Allows Guilds to add new members, track par
 
 ## Contributors
 - Dominic Romanello
-- Nouh 
+- Nouh Anies
 - Richard 'Jerry' Laughter
 
 
